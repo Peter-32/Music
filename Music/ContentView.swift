@@ -7,25 +7,34 @@
 
 import SwiftUI
 
+struct Line: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        
+        path.move(to: CGPoint(x: rect.minX, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
+        
+        return path
+                                                
+    }
+}
+
+
 struct ContentView: View {
     var body: some View {
-        return VStack {
+        return VStack() {
+            Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
+                                                            .round, lineJoin: .round)).frame(width: 300, height: 10)
+            Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
+                                                            .round, lineJoin: .round)).frame(width: 300, height: 10)
+            Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
+                                                            .round, lineJoin: .round)).frame(width: 300, height: 10)
+            Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
+                                                            .round, lineJoin: .round)).frame(width: 300, height: 10)
+            Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
+                                                            .round, lineJoin: .round)).frame(width: 300, height: 10)
             
-            Path() { path in
-                path.move(to: CGPoint(x: 20, y: 20))
-                path.addLine(to: CGPoint(x: 370, y: 20))
-                path.addLine(to: CGPoint(x: 370, y: 21))
-                path.addLine(to: CGPoint(x: 20, y: 21))
-            }
-            .fill(Color.black)
-                        
-            Path() { path in
-                path.move(to: CGPoint(x: 20, y: 25))
-                path.addLine(to: CGPoint(x: 370, y: 25))
-                path.addLine(to: CGPoint(x: 370, y: 26))
-                path.addLine(to: CGPoint(x: 20, y: 27))
-            }
-            .fill(Color.black)
+                
         }
     }
 }
