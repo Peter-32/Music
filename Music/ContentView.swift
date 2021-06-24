@@ -50,13 +50,6 @@ struct Arc: Shape {
         var path = Path()
         
         path.addArc(center: CGPoint(x: rect.midX, y: rect.midY), radius: rect.width / 2, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
-        path.move(to: CGPoint(x: rect.minX, y: rect.minY))
-        path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
-        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
-        path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
-        path.addLine(to: CGPoint(x: rect.minX, y: rect.minY))
-        
-        
         return path
                                                 
     }
@@ -99,6 +92,11 @@ struct ContentView: View {
         return VStack() {
             VStack {
                 Arc(startAngle: .degrees(0), endAngle: .degrees(360), clockwise: true)
+                    .stroke(Color(red: 76/255, green: 162/255, blue: 255/255))
+//                    .fillColor(Color.blue)
+//                .fill(Color(red: 76/255, green: 162/255, blue: 255/255))
+                    .frame(width: 100, height: 100)
+                    
             }
             Spacer()
             VStack {
@@ -178,5 +176,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
     }
 }
