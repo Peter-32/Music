@@ -41,6 +41,26 @@ struct Square: Shape {
     }
 }
 
+//class CircleView: UIView {
+//    override func draw(rect: CGRect) {
+//        let path = UIBezierPath()
+//
+//        let radius: Double = 100
+//        let center = CGPoint(x: rect.width / 2, y: rect.height / 2)
+//
+//        path.move(to: CGPoint(x: center.x + CGFloat(radius, y: center.y)))
+//
+//        for i in stride(from: 0, to: 361.0, by: 10) {
+//            let radians = i * Double.pi / 180
+//
+//            let x = Double(center.x) + radius * cos(radians)
+//            let y = Double(center.y) + radius * sin(radians)
+//
+//            path.addLine(to: CGPoint(x: x, y: y))
+//        }
+//    }
+//}
+
 struct Arc: Shape {
     var startAngle: Angle
     var endAngle: Angle
@@ -56,45 +76,47 @@ struct Arc: Shape {
 }
 
 
-func buttonA() {
-    
-}
-func buttonB() {
-    
-}
-func buttonC() {
-    
-}
-func buttonD() {
-    
-}
-func buttonE() {
-    
-}
-func buttonF() {
-    
-}
-func buttonG() {
-    
-}
-func buttonPlay() {
-    
-}
-func buttonUndo() {
-    
-}
-func buttonReset() {
-    
-}
+
 
 struct ContentView: View {
+    @State var note1_color: Color = Color.black
+    
+    func buttonA() {
+        note1_color = Color(red: 76/255, green: 162/255, blue: 255/255)
+    }
+    func buttonB() {
+        note1_color = Color(red: 140/255, green: 81/255, blue: 165/255)
+    }
+    func buttonC() {
+        
+    }
+    func buttonD() {
+        
+    }
+    func buttonE() {
+        
+    }
+    func buttonF() {
+        
+    }
+    func buttonG() {
+        
+    }
+    func buttonPlay() {
+        
+    }
+    func buttonUndo() {
+        
+    }
+    func buttonReset() {
+        
+    }
+    
+    
     var body: some View {
         return VStack() {
             VStack {
-                Arc(startAngle: .degrees(0), endAngle: .degrees(360), clockwise: true)
-                    .stroke(Color(red: 76/255, green: 162/255, blue: 255/255))
-//                    .fillColor(Color.blue)
-//                .fill(Color(red: 76/255, green: 162/255, blue: 255/255))
+                Circle().fill(note1_color)
                     .frame(width: 100, height: 100)
                     
             }
