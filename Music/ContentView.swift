@@ -79,28 +79,54 @@ struct Arc: Shape {
 
 
 struct ContentView: View {
-    @State var note1_color: Color = Color.black
+    @State var note_colors = [Color.white, Color.white, Color.white, Color.white]
+    @State var next_note_index = 0
+    @State var note_locations = [CGFloat(4), CGFloat(4), CGFloat(4), CGFloat(4)]
+    
+    func increment_note_id() {
+        if (next_note_index == 3) {
+            next_note_index = 0
+        }
+        else {
+            next_note_index += 1
+        }
+    }
     
     func buttonA() {
-        note1_color = Color(red: 76/255, green: 162/255, blue: 255/255)
+        note_colors[next_note_index] = Color(red: 76/255, green: 162/255, blue: 255/255)
+        note_locations[next_note_index] = CGFloat(4)
+        increment_note_id()
+        
     }
     func buttonB() {
-        note1_color = Color(red: 140/255, green: 81/255, blue: 165/255)
+        note_colors[next_note_index] = Color(red: 140/255, green: 81/255, blue: 165/255)
+        note_locations[next_note_index] = CGFloat(-5)
+        increment_note_id()
     }
     func buttonC() {
-        
+        note_colors[next_note_index] = Color(red: 203/255, green: 94/255, blue: 152/255)
+        note_locations[next_note_index] = CGFloat(-14)
+        increment_note_id()
     }
     func buttonD() {
-        
+        note_colors[next_note_index] = Color(red: 244/255, green: 123/255, blue: 138/255)
+        note_locations[next_note_index] = CGFloat(-23)
+        increment_note_id()
     }
     func buttonE() {
-        
+        note_colors[next_note_index] = Color(red: 255/255, green: 163/255, blue: 127/255)
+        note_locations[next_note_index] = CGFloat(-32)
+        increment_note_id()
     }
     func buttonF() {
-        
+        note_colors[next_note_index] = Color(red: 255/255, green: 210/255, blue: 133/255)
+        note_locations[next_note_index] = CGFloat(-41)
+        increment_note_id()
     }
     func buttonG() {
-        
+        note_colors[next_note_index] = Color(red: 255/255, green: 255/255, blue: 165/255)
+        note_locations[next_note_index] = CGFloat(-50)
+        increment_note_id()
     }
     func buttonPlay() {
         
@@ -117,22 +143,6 @@ struct ContentView: View {
         return VStack() {
             Spacer()
             ZStack {
-                HStack {
-                    Spacer()
-                    Circle().fill(note1_color)
-                        .frame(width: 15, height: 15).offset(x: 0, y: 4).offset(x: 0, y: 9)
-                    Spacer()
-                    Circle().fill(note1_color)
-                        .frame(width: 15, height: 15).offset(x: 0, y: 4).offset(x: 0, y: -18)
-                    Spacer()
-                    Circle().fill(note1_color)
-                        .frame(width: 15, height: 15).offset(x: 0, y: 4).offset(x: 0, y: -18)
-                    Spacer()
-                    Circle().fill(note1_color)
-                        .frame(width: 15, height: 15).offset(x: 0, y: 4)
-                    Spacer()
-                    
-                }
                 VStack {
                     
                     Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
@@ -145,6 +155,22 @@ struct ContentView: View {
                                                                     .round, lineJoin: .round)).frame(width: UIScreen.screenWidth-32, height: 10)
                     Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
                                                                     .round, lineJoin: .round)).frame(width: UIScreen.screenWidth-32, height: 10)
+                }
+                HStack {
+                    Spacer() // 15 is 2 higher, -18 is start
+                    Circle().fill(note_colors[0])
+                        .frame(width: 15, height: 15).offset(x: 0, y: note_locations[0])
+                    Spacer()
+                    Circle().fill(note_colors[1])
+                        .frame(width: 15, height: 15).offset(x: 0, y: note_locations[1])
+                    Spacer()
+                    Circle().fill(note_colors[3])
+                        .frame(width: 15, height: 15).offset(x: 0, y: note_locations[2])
+                    Spacer()
+                    Circle().fill(note_colors[3])
+                        .frame(width: 15, height: note_locations[0]).offset(x: 0, y: note_locations[3])
+                    Spacer()
+                    
                 }
             }
             Spacer()
