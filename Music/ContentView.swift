@@ -115,23 +115,37 @@ struct ContentView: View {
     
     var body: some View {
         return VStack() {
-            VStack {
-                Circle().fill(note1_color)
-                    .frame(width: 100, height: 100)
-                    
-            }
             Spacer()
-            VStack {
-                Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
-                                                                .round, lineJoin: .round)).frame(width: UIScreen.screenWidth-32, height: 10)
-                Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
-                                                                .round, lineJoin: .round)).frame(width: UIScreen.screenWidth-32, height: 10)
-                Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
-                                                                .round, lineJoin: .round)).frame(width: UIScreen.screenWidth-32, height: 10)
-                Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
-                                                                .round, lineJoin: .round)).frame(width: UIScreen.screenWidth-32, height: 10)
-                Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
-                                                                .round, lineJoin: .round)).frame(width: UIScreen.screenWidth-32, height: 10)
+            ZStack {
+                HStack {
+                    Spacer()
+                    Circle().fill(note1_color)
+                        .frame(width: 15, height: 15).offset(x: 0, y: 4).offset(x: 0, y: 9)
+                    Spacer()
+                    Circle().fill(note1_color)
+                        .frame(width: 15, height: 15).offset(x: 0, y: 4).offset(x: 0, y: -18)
+                    Spacer()
+                    Circle().fill(note1_color)
+                        .frame(width: 15, height: 15).offset(x: 0, y: 4).offset(x: 0, y: -18)
+                    Spacer()
+                    Circle().fill(note1_color)
+                        .frame(width: 15, height: 15).offset(x: 0, y: 4)
+                    Spacer()
+                    
+                }
+                VStack {
+                    
+                    Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
+                                                                    .round, lineJoin: .round)).frame(width: UIScreen.screenWidth-32, height: 10)
+                    Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
+                                                                    .round, lineJoin: .round)).frame(width: UIScreen.screenWidth-32, height: 10)
+                    Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
+                                                                    .round, lineJoin: .round)).frame(width: UIScreen.screenWidth-32, height: 10)
+                    Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
+                                                                    .round, lineJoin: .round)).frame(width: UIScreen.screenWidth-32, height: 10)
+                    Line().stroke(Color.black, style: StrokeStyle(lineWidth: 3, lineCap:
+                                                                    .round, lineJoin: .round)).frame(width: UIScreen.screenWidth-32, height: 10)
+                }
             }
             Spacer()
             HStack {
